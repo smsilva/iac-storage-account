@@ -5,7 +5,7 @@ variable "region" {
 
 variable "resource_group" {
   default = {
-    name = ""
+    name     = ""
     location = ""
   }
 }

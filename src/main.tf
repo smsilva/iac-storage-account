@@ -1,13 +1,10 @@
-resource "azurerm_storage_account" "default" {
-  name                     = var.storage_account_name
-  resource_group_name      = var.resource_group.name
-  location                 = var.resource_group.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-resource "azurerm_storage_container" "default" {
-  name                  = var.container_name
-  storage_account_name  = azurerm_storage_account.default.name
-  container_access_type = "private"
+resource "null_resource" "fake_storage_account" {
+  triggers = {
+    name                     = var.storage_account_name
+    location                 = var.resource_group.location
+    account_tier             = "Standard"
+    account_replication_type = "LRS"
+    container_name           = var.container_name
+    resource_group_name      = var.resource_group.name
+  }
 }

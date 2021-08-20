@@ -3,9 +3,5 @@ output "resource_group" {
 }
 
 output "storage_account" {
-  value = azurerm_storage_account.default
-}
-
-output "storage_container" {
-  value = azurerm_storage_container.default
+  value = null_resource.fake_storage_account
 }
